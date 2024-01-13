@@ -1,0 +1,47 @@
+const Product = require('../models/product'); // Import your Product model (adjust the path as needed);
+const { adminIds, prefix, verif, thankyou, megaphone, no, warning, wl, dl, arrow1, arrow2, arrow3, StoreName, bot, owner, world } = require('../config.json');
+const purchaseEmitter = require('../events/purchaseEmitter');
+
+module.exports = {
+  name: 'removestock',
+  description: 'Remove stock to an existing product',
+  async execute(message, args) {
+    // Check if the user executing the command has the allowed user ID
+    if (!adminIds.includes(message.author.id)) {
+      return message.reply(`${warning} You do not have permission to use this command.`);
+    }
+
+    // Check if there are enough arguments
+    if (args.length < 2) {
+      return message.reply(`${megaphone} Please provide the product code and the quantity of stock to add.`);
+    }
+
+    const code = args[0];
+    const quantityToAdd = parseInt(args[1]);
+
+    if (isNaN(quantityToAdd) || quantityToAdd <= 0) {
+      return message.reply(`${warning} Please provide a valid quantity greater than 0.`);
+    }
+
+    try {
+      // Find the product in the database by code
+      const product = await Product.findOne({ code });
+
+      if (!product) {
+        return message.reply(`${no} Product not found. Make sure to provide the correct product code.`);
+      }
+
+      // Increment the stock by the specified quantity
+      product.stock -= quantityToAdd;
+
+      await product.save();
+
+      purchaseEmitter.emit('purchase');
+
+      return message.reply(`${verif} Stock Removed successfully.`);
+    } catch (error) {
+      console.error('Error:', error);
+      return message.reply('Something went wrong.');
+    }
+  },
+};

@@ -1,0 +1,29 @@
+{
+  "StoreName": "Your Store",
+  "token": "Token Bot",
+  "mongoURI": "MongoDB Link",
+  "prefix": "Your Prefix",
+  "adminIds": [
+    "Admin ID 1",
+    "Admin ID 1"
+  ],
+  "buylogChannelId": "Buy Log Chanel ID ",
+  "stockChannelId": "Stock Channel ID ",
+  "yourBotId": "Bot ID ",
+  "desiredChannelId": "Donation Log ID",
+  "specificUserId": "Webhook Bot ID",
+ "wl": "<:nanta_wl:1164355148101992508>",
+  "no": "<a:nanta_no:1194268857817378876>",
+  "verif": "<a:nanta_verif:1194268867850154004>",
+  "warning": "<a:nanta_warning:1194268835537244221>",
+  "megaphone": "<:nanta_megaphone:1194268852398338089>",
+  "thankyou": "<a:nanta_thankyou:1194268863353868368>",
+  "dl": "<:nanta_dl:1194268003894829107>",
+  "arrow1": "<a:nanta_arrow1:1194268841786740736>",
+  "arrow2": "<a:nanta_arrow2:1194268850112430091>",
+  "arrow3": "<a:nanta_arrow3:1194270435156688978>",
+  "world": "<a:nanta_world:1164362809707069591>",
+  "owner": "<:nanta_bot:1164355355745210430>",
+  "bot": "<:nanta_bot:1164355355745210430>",
+  "bgl": "<:nanta_bgl:1164355146298441810> "
+}
